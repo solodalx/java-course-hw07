@@ -1,4 +1,9 @@
+import java.util.List;
+
 public interface Context {
+    List<Thread> getThreads();
+    Thread getCallback();
+
     //Метод getCompletedTaskCount() возвращает количество тасков, которые на текущий момент успешно выполнились.
     int getCompletedTaskCount();
 

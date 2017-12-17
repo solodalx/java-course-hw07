@@ -10,12 +10,23 @@ public class ContextImpl implements Context{
         this.threads = threads;
     }
 
+    @Override
+    public List<Thread> getThreads() {
+        return threads;
+    }
+
+    @Override
+    public Thread getCallback() {
+        return callback;
+    }
+
     //Метод getCompletedTaskCount() возвращает количество тасков, которые на текущий момент успешно выполнились.
     @Override
     public int getCompletedTaskCount() {
         int count = 0;
         for (Thread thread: threads) {
-            if (!thread.isAlive())
+//            if (!thread.isAlive())
+            if (thread.getState() == Thread.State.TERMINATED)
                 count++;
         }
         return count;

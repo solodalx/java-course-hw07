@@ -11,6 +11,8 @@ public class ExecutionManagerImpl implements ExecutionManager {
                         try {
                             t.join();
                         } catch (InterruptedException e) {
+                            // Debug
+                            System.out.println("TASK " + t.getName() + " TERMINATED");
                             e.printStackTrace();
                         }
                     }
